@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta here -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> 
+          
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Copy Clipboard (Midterm Exam)</title>
+  </head>
+  <body>
+    
+    <section class="font-[Poppins] bg-gradient-to-t from-[#9adb9a] to-[#87b173] h-screen">
+      <header class="bg-white">
+        <nav class="bg-teal-700">
+          <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+              <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                  <span class="absolute -inset-0.5"></span>
+                  <span class="sr-only">Open main menu</span>
+                  <!--
+                    Icon when menu is closed.
+        
+                    Menu open: "hidden", Menu closed: "block"
+                  -->
+                  <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                  <!--
+                    Icon when menu is open.
+        
+                    Menu open: "block", Menu closed: "hidden"
+                  -->
+                  <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex flex-shrink-0 items-center">
+                  <img class="h-8 w-auto" src="MicrosoftTeams-image (4).png" alt="Your Company">
+                </div>
+                <div class="hidden sm:ml-6 sm:block">
+                  <div class="flex space-x-4">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">News</a>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <span class="absolute -inset-1.5"></span>
+                  <span class="sr-only">View notifications</span>
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                  </svg>
+                </button>
+        
+                <!-- Profile dropdown -->
+                <div class="relative ml-3">
+                  <div>
+                    <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                      <span class="absolute -inset-1.5"></span>
+                      <span class="sr-only">Open user menu</span>
+
+                  </div>
+        
+                  <!--
+                
+                  -->
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Mobile menu, show/hide based on menu state. -->
+          <div class="sm:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact Us</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">News</a>
+            </div>
+          </div>
+
+          <!--carousel--->
+          
+              <style>
+                .carousel-open:checked + .carousel-item {
+                  position: static;
+                  opacity: 100;
+                }
+                .carousel-item {
+                  -webkit-transition: opacity 0.6s ease-out;
+                  transition: opacity 0.6s ease-out;
+                }
+                #carousel-1:checked ~ .control-1,
+                #carousel-2:checked ~ .control-2,
+                #carousel-3:checked ~ .control-3 {
+                  display: block;
+                }
+                .carousel-indicators {
+                  list-style: none;
+                  margin: 0;
+                  padding: 0;
+                  position: absolute;
+                  bottom: 2%;
+                  left: 0;
+                  right: 0;
+                  text-align: center;
+                  z-index: 10;
+                }
+                #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+                #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+                #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+                  color: #144618;  /*Set to match the Tailwind colour you want the active one to be */
+                }
+              </style>
+          
+          </head>
+          
+          <body class="bg-white font-sans leading-normal tracking-normal">
+          
+          <div class="carousel relative shadow-2xl bg-white">
+            <div class="carousel-inner relative overflow-hidden w-full">
+              <!--Slide 1-->
+              <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+              <div class="carousel-item absolute opacity-0" style="height:50vh;">
+                <img class="mx-auto h-screen" src="farm 5.jpg" alt="">
+              </div>
+              <label for="carousel-3" class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+              <label for="carousel-2" class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+              
+              <!--Slide 2-->
+              <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+              <div class="carousel-item absolute opacity-0" style="height:50vh;">
+                <img class="mx-auto h-screen" src="farm6.jpg" alt="">
+              </div>
+              <label for="carousel-1" class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+              <label for="carousel-3" class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label> 
+              
+              <!--Slide 3-->
+              <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+              <div class="carousel-item absolute opacity-0" style="height:50vh;">
+                <img class="mx-auto h-screen" src="farm7.jpg" alt="">
+              </div>
+              <label for="carousel-2" class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+              <label for="carousel-1" class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+          
+              <!-- Add additional indicators for each slide-->
+              <ol class="carousel-indicators">
+                <li class="inline-block mr-3">
+                  <label for="carousel-1" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+                </li>
+                <li class="inline-block mr-3">
+                  <label for="carousel-2" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+                </li>
+                <li class="inline-block mr-3">
+                  <label for="carousel-3" class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
+                </li>
+              </ol>
+              
+            </div>
+          </div>
+          
+          </html>
+
+          
+        </div>
+       <div class="bg-gradient-to-t  from-[#4c6f77] to-[#78be87] ">
+        <section>
+          <div class="flex flex-wrap lg:items-center p-12">
+            <div class="lg:w-1/2">
+            <img class="w-6/12" src="black-rice-royalty-free-image-1705529995.jpg" alt="">
+          </div>
+          <div class="lg:w-1/2">
+            <h2 class="lg:ml-12 lg:text-3xl font-bold mt-5 mb-5">Black Rice</h2>
+            <p class="lg:ml-12">contains a boost of nutrients that help your body. Black rice know as purple rice or forbidden rice. It is Rich in Antioxidants. </p>
+
+              </section>
+              <section>
+
+            <div class="bg-gradient-to-t  from-[#4c6f77] to-[#78be87] ">
+             <section>
+               <div class="flex flex-wrap lg:items-center p-12">
+                 <div class="w-6/12">
+                 <img class="w-6/12" src="bassmati.jpg" alt="">
+               </div>
+               <div class="lg:w-1/2">
+                 <h2 class="lg:ml-12 lg:text-3xl font-bold mt-5 mb-5">Basmati Rice </h2>
+                 <p class="lg:ml-12">Is a type of white rice, it is grown in the India Himalayas and Pakistan. It is lower calories rather than other Rice. Basmati rice is kinda expensive due to having demand. And its name is derived from Sanskrit word “basmati” means “Fragrant” or “Aromatic”  </p>
+                </section>
+                <div class="bg-gradient-to-t  from-[#4c6f77] to-[#78be87]  ">
+                  <section>
+                    <div class="flex flex-wrap lg:items-center p-12">
+                      <div class="w-6/12">
+                      <img class="w-6/12" src="brown.jpg" alt="">
+                    </div>
+                    <div class="lg:w-1/2">
+                      <h2 class="lg:ml-12 lg:text-3xl font-bold mt-5 mb-5">Brown Rice </h2>
+                      <p class="lg:ml-12">Is healtier eating because of Whole grain, brown rice is less processed than white Rice. There are many Benefits or Brown Rice. Like Controls blood Sugar level, Help in Weight Loss, Maintains Bone Health etc. </p>
+                     </section>
+     
+
+
+
+          </div>
+       
+
+
+       </div>
+</body>
+      
+        
+          
+
+
+</div>
+
+        </nav>
+
+          </div>
+    </section>
+  
+
+    
+  </body>
+</html>
